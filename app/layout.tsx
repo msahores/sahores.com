@@ -18,9 +18,9 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Manuel Sahores — Frontend Engineer",
+  title: "Manuel Sahores — Product Engineer",
   description:
-    "Frontend engineer with 10+ years of experience building web applications.",
+    "Product engineer with 10+ years of experience building web applications.",
 };
 
 export default function RootLayout({
