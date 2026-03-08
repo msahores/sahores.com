@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const COLORS = ["#c4956a", "#a06b3e", "#8b5e34", "#d4a574", "#b8845a"];
 const COUNT = 12;
-const DRIFT = 6;
+const REPULSE_RADIUS = 100;
+const REPULSE_STRENGTH = 30;
 
 function randomColor() {
   return COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -16,31 +17,55 @@ function initial() {
 
 export function GridMark() {
   const [colors, setColors] = useState(() => initial());
-  const [offsets, setOffsets] = useState(() => new Array(COUNT).fill(0));
+  const [offsets, setOffsets] = useState(() =>
+    new Array(COUNT).fill(null).map(() => ({ x: 0, y: 0 }))
+  );
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pixelRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const nudge = useCallback((index: number, direction: 1 | -1) => {
-    setOffsets((prev) => {
-      const next = [...prev];
-      next[index] = direction * DRIFT;
-      return next;
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!containerRef.current) return;
+
+    const newOffsets = pixelRefs.current.map((el) => {
+      if (!el) return { x: 0, y: 0 };
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = cx - e.clientX;
+      const dy = cy - e.clientY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < REPULSE_RADIUS && dist > 0) {
+        const force = (1 - dist / REPULSE_RADIUS) * REPULSE_STRENGTH;
+        return {
+          x: (dx / dist) * force,
+          y: (dy / dist) * force,
+        };
+      }
+      return { x: 0, y: 0 };
     });
 
-    setTimeout(() => {
-      setOffsets((prev) => {
-        const next = [...prev];
-        next[index] = 0;
-        return next;
-      });
+    setOffsets(newOffsets);
+  }, []);
 
-      const neighbor = index + direction;
-      if (neighbor >= 0 && neighbor < COUNT && Math.random() > 0.3) {
-        setTimeout(() => nudge(neighbor, direction), 200);
-      }
-    }, 800 + Math.random() * 400);
+  const handleMouseLeave = useCallback(() => {
+    setOffsets(new Array(COUNT).fill(null).map(() => ({ x: 0, y: 0 })));
   }, []);
 
   useEffect(() => {
-    const colorInterval = setInterval(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [handleMouseMove, handleMouseLeave]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
       setColors((prev) => {
         const next = [...prev];
         const i = Math.floor(Math.random() * COUNT);
@@ -48,31 +73,27 @@ export function GridMark() {
         return next;
       });
     }, 1200);
-
-    const moveInterval = setInterval(() => {
-      const i = Math.floor(Math.random() * COUNT);
-      const dir = Math.random() > 0.5 ? 1 : -1;
-      nudge(i, dir as 1 | -1);
-    }, 2500);
-
-    return () => {
-      clearInterval(colorInterval);
-      clearInterval(moveInterval);
-    };
-  }, [nudge]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="flex w-full items-center" role="img" aria-hidden="true">
+    <div
+      ref={containerRef}
+      className="flex w-full items-center"
+      role="img"
+      aria-hidden="true"
+    >
       {colors.map((color, i) => (
         <div
           key={i}
+          ref={(el) => { pixelRefs.current[i] = el; }}
           className="h-2 w-2 shrink-0 rounded-[1px] sm:h-2.5 sm:w-2.5"
           style={{
             backgroundColor: color,
             marginLeft: i === 0 ? 0 : Math.round(Math.pow(i, 1.8)),
-            transform: `translateX(${offsets[i]}px)`,
+            transform: `translate(${offsets[i].x}px, ${offsets[i].y}px)`,
             transition:
-              "background-color 1.5s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              "background-color 1.5s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           }}
         />
       ))}
