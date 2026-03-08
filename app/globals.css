@@ -41,6 +41,7 @@ body {
   color: var(--foreground);
 }
 
+
 @keyframes fade-up {
   from {
     opacity: 0;

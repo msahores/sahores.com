@@ -18,9 +18,13 @@ export default function Home() {
         </div>
 
         <div
-          className="animate-fade-up mt-8 h-px w-12 bg-accent sm:mt-10 sm:w-16"
+          className="animate-fade-up mt-8 flex gap-1.5 sm:mt-10"
           style={{ animationDelay: "0.15s" }}
-        />
+        >
+          <div className="h-px w-8 bg-accent sm:w-10" />
+          <div className="h-px w-3 bg-accent/50 sm:w-4" />
+          <div className="h-px w-1.5 bg-accent/25 sm:w-2" />
+        </div>
 
         <section
           className="animate-fade-up mt-8 max-w-md space-y-3 font-sans text-sm leading-relaxed text-muted sm:mt-10 sm:space-y-4 sm:text-base"
