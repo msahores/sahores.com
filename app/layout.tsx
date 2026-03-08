@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Manuel Sahores",
   description:
     "Creative engineer building web products for over 10 years.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

@@ -1,3 +1,4 @@
+import { GridMark } from "./grid-mark";
 import { ThemeToggle } from "./theme-toggle";
 
 export default function Home() {
@@ -18,12 +19,10 @@ export default function Home() {
         </div>
 
         <div
-          className="animate-fade-up mt-8 flex gap-1.5 sm:mt-10"
+          className="animate-fade-up mt-8 sm:mt-10"
           style={{ animationDelay: "0.15s" }}
         >
-          <div className="h-px w-8 bg-accent sm:w-10" />
-          <div className="h-px w-3 bg-accent/50 sm:w-4" />
-          <div className="h-px w-1.5 bg-accent/25 sm:w-2" />
+          <GridMark />
         </div>
 
         <section
