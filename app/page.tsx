@@ -1,13 +1,16 @@
+import { ThemeToggle } from "./theme-toggle";
+
 export default function Home() {
   return (
-    <div className="flex min-h-svh items-center justify-center px-6">
+    <div className="flex min-h-svh items-center justify-center px-5 py-12 sm:px-6">
+      <ThemeToggle />
       <main className="w-full max-w-lg">
         <div className="animate-fade-up">
-          <p className="font-mono text-sm tracking-widest text-muted uppercase">
-            Product Engineer
+          <p className="font-mono text-xs tracking-widest text-muted uppercase sm:text-sm">
+            Creative Engineer
           </p>
 
-          <h1 className="mt-4 font-sans text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
+          <h1 className="mt-3 font-sans text-4xl font-semibold leading-tight tracking-tight sm:mt-4 sm:text-6xl">
             Manuel
             <br />
             Sahores
@@ -15,17 +18,17 @@ export default function Home() {
         </div>
 
         <div
-          className="animate-fade-up mt-10 h-px w-16 bg-accent"
+          className="animate-fade-up mt-8 h-px w-12 bg-accent sm:mt-10 sm:w-16"
           style={{ animationDelay: "0.15s" }}
         />
 
         <section
-          className="animate-fade-up mt-10 max-w-md space-y-4 font-sans text-base leading-relaxed text-muted"
+          className="animate-fade-up mt-8 max-w-md space-y-3 font-sans text-sm leading-relaxed text-muted sm:mt-10 sm:space-y-4 sm:text-base"
           style={{ animationDelay: "0.3s" }}
         >
           <p>
-            I&apos;m Manuel — a product engineer who&apos;s been building for
-            the web for over 10 years.
+            I&apos;m Manuel — I&apos;ve been building for the web for over
+            10 years.
           </p>
           <p>
             Worked with startups, agencies, and international clients. Built
@@ -36,20 +39,20 @@ export default function Home() {
             Now I spend my time building products and tools that solve real
             problems — and having fun doing it.
           </p>
-          <p className="font-mono text-sm text-accent">
+          <p className="font-mono text-xs text-accent sm:text-sm">
             My go-to stack: React, TypeScript, Next.js, Node.js.
           </p>
         </section>
 
         <nav
-          className="animate-fade-up mt-10 flex gap-8"
+          className="animate-fade-up mt-8 flex flex-wrap gap-5 sm:mt-10 sm:gap-8"
           style={{ animationDelay: "0.45s" }}
         >
           <a
             href="https://github.com/msahores"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm text-muted transition-colors hover:text-accent"
+            className="font-mono text-xs text-muted transition-colors hover:text-accent sm:text-sm"
           >
             GitHub
           </a>
@@ -57,13 +60,13 @@ export default function Home() {
             href="https://linkedin.com/in/manuelsahores"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm text-muted transition-colors hover:text-accent"
+            className="font-mono text-xs text-muted transition-colors hover:text-accent sm:text-sm"
           >
             LinkedIn
           </a>
           <a
             href="mailto:manuel.sahores@gmail.com"
-            className="font-mono text-sm text-muted transition-colors hover:text-accent"
+            className="font-mono text-xs text-muted transition-colors hover:text-accent sm:text-sm"
           >
             Email
           </a>

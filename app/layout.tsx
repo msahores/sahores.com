@@ -6,21 +6,21 @@ import "./globals.css";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 const serif = Source_Serif_4({
-  variable: "--font-geist-sans",
+  variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "600"],
 });
 
 const mono = IBM_Plex_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Manuel Sahores — Product Engineer",
+  title: "Manuel Sahores",
   description:
-    "Product engineer with 10+ years of experience building web applications.",
+    "Creative engineer building web products for over 10 years.",
 };
 
 export default function RootLayout({
