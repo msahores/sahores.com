@@ -35,7 +35,7 @@ export default function Home() {
           </p>
           <p>
             Worked with startups, agencies, and international clients. Built
-            gaming platforms, Google ad platforms, club management tools,
+            gaming platforms, rich media ads for Google, club management tools,
             real-time apps, and a few things in between.
           </p>
           <p>
