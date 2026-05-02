@@ -100,7 +100,7 @@ export default function Home() {
             </svg>
           </a>
           <a
-            href="mailto:manuel.sahores@gmail.com"
+            href="mailto:manuel@sahores.com"
             aria-label="Email"
             className="text-muted transition-colors hover:text-accent"
           >

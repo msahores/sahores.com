@@ -82,22 +82,37 @@ export function ContactForm() {
       </Field>
 
       <Field label="What can I help with?" htmlFor="intent">
-        <select
-          id="intent"
-          name="intent"
-          required
-          defaultValue=""
-          className={inputCls}
-        >
-          <option value="" disabled>
-            Choose one
-          </option>
-          {intents.map((value) => (
-            <option key={value} value={value}>
-              {value}
+        <div className="relative">
+          <select
+            id="intent"
+            name="intent"
+            required
+            defaultValue=""
+            className={`${inputCls} appearance-none pr-10`}
+          >
+            <option value="" hidden>
+              Choose one
             </option>
-          ))}
-        </select>
+            {intents.map((value) => (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            ))}
+          </select>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-muted pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
       </Field>
 
       <Field label="Message" htmlFor="message">
@@ -115,10 +130,10 @@ export function ContactForm() {
         <p className="font-mono text-xs text-accent sm:text-sm">
           Something went wrong. Please try again or email me directly at{" "}
           <a
-            href="mailto:manuel.sahores@gmail.com"
+            href="mailto:manuel@sahores.com"
             className="underline underline-offset-4"
           >
-            manuel.sahores@gmail.com
+            manuel@sahores.com
           </a>
           .
         </p>
