@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
+import { Cormorant_Garamond, EB_Garamond, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
-const serif = Source_Serif_4({
+const serif = EB_Garamond({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "500", "600"],
+});
+
+const display = Cormorant_Garamond({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const mono = IBM_Plex_Mono({
@@ -46,7 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       )}
-      <body className={`${serif.variable} ${mono.variable} antialiased`}>
+      <body className={`${serif.variable} ${display.variable} ${mono.variable} antialiased`}>
         {GTM_ID && (
           <noscript>
             <iframe

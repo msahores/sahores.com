@@ -11,7 +11,10 @@ export default function Home() {
             Product Engineer
           </p>
 
-          <h1 className="mt-3 font-sans text-4xl font-semibold leading-tight tracking-tight sm:mt-4 sm:text-6xl">
+          <h1
+            className="mt-3 text-4xl font-bold leading-tight tracking-wide sm:mt-4 sm:text-6xl"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             Manuel
             <br />
             Sahores
