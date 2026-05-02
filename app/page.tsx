@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GridMark } from "./grid-mark";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -50,9 +51,21 @@ export default function Home() {
           </p>
         </section>
 
-        <nav
-          className="animate-fade-up mt-8 flex flex-wrap gap-5 sm:mt-10 sm:gap-6"
+        <div
+          className="animate-fade-up mt-8 sm:mt-10"
           style={{ animationDelay: "0.45s" }}
+        >
+          <Link
+            href="/contact"
+            className="font-mono text-xs text-accent transition-colors hover:text-foreground sm:text-sm"
+          >
+            Currently available for freelance — let&apos;s talk →
+          </Link>
+        </div>
+
+        <nav
+          className="animate-fade-up mt-6 flex flex-wrap gap-5 sm:mt-8 sm:gap-6"
+          style={{ animationDelay: "0.6s" }}
         >
           <a
             href="https://github.com/msahores"

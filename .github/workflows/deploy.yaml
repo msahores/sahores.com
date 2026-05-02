@@ -25,6 +25,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
 
       - name: Deploy to AWS Lightsail via SCP
         uses: appleboy/scp-action@v0.1.7
