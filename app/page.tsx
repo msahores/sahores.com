@@ -29,9 +29,26 @@ export default function Home() {
           <GridMark />
         </div>
 
+        <div
+          className="animate-fade-up mt-8 sm:mt-10"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2.5 font-mono text-xs tracking-wide text-foreground transition-colors hover:text-accent sm:text-sm"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            Available for freelance work
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+          </Link>
+        </div>
+
         <section
           className="animate-fade-up mt-8 max-w-md space-y-3 font-sans text-sm leading-relaxed text-muted sm:mt-10 sm:space-y-4 sm:text-base"
-          style={{ animationDelay: "0.3s" }}
+          style={{ animationDelay: "0.45s" }}
         >
           <p>
             I&apos;m Manuel — I&apos;ve been building for the web for over
@@ -51,20 +68,8 @@ export default function Home() {
           </p>
         </section>
 
-        <div
-          className="animate-fade-up mt-8 sm:mt-10"
-          style={{ animationDelay: "0.45s" }}
-        >
-          <Link
-            href="/contact"
-            className="font-mono text-xs text-accent transition-colors hover:text-foreground sm:text-sm"
-          >
-            Currently available for freelance — let&apos;s talk →
-          </Link>
-        </div>
-
         <nav
-          className="animate-fade-up mt-6 flex flex-wrap gap-5 sm:mt-8 sm:gap-6"
+          className="animate-fade-up mt-8 flex flex-wrap gap-5 sm:mt-10 sm:gap-6"
           style={{ animationDelay: "0.6s" }}
         >
           <a
