@@ -8,7 +8,7 @@ export default function Home() {
       <main className="w-full max-w-lg">
         <div className="animate-fade-up">
           <p className="font-mono text-xs tracking-widest text-muted uppercase sm:text-sm">
-            Creative Engineer
+            Product Engineer
           </p>
 
           <h1 className="mt-3 font-sans text-4xl font-semibold leading-tight tracking-tight sm:mt-4 sm:text-6xl">
