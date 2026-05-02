@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# personal / strategy notes — keep out of public repo
+ROADMAP.md
+docs/superpowers/
