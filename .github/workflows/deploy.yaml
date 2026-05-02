@@ -26,7 +26,7 @@ jobs:
         env:
           NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
 
-      - name: Deploy to Hetzner via SCP
+      - name: Deploy to AWS Lightsail via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.REMOTE_HOST }}
