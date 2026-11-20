@@ -3,6 +3,7 @@ import { ThemeToggle } from "../theme-toggle";
 import { ContactForm } from "./contact-form";
 
 export const metadata = {
+  alternates: { canonical: "/contact" },
   title: "Get in touch — Manuel Sahores",
   description:
     "Available for freelance projects and collaborations. Get in touch.",
