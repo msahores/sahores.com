@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { SITE_HOST } from "../site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -23,10 +24,10 @@ export function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     data.append("access_key", ACCESS_KEY ?? "");
-    data.append("from_name", "sahores.com");
+    data.append("from_name", SITE_HOST);
     data.append(
       "subject",
-      `New contact from sahores.com — ${data.get("intent") ?? ""}`,
+      `New contact from ${SITE_HOST} — ${data.get("intent") ?? ""}`,
     );
 
     try {

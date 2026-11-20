@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, EB_Garamond, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
+import { SITE_URL } from "./site";
 import "./globals.css";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
@@ -24,6 +25,8 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: "Manuel Sahores",
   description:
     "Creative engineer building web products for over 10 years.",
